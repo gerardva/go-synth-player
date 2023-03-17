@@ -2,9 +2,8 @@ package parser
 
 import (
 	"fmt"
-	"github.com/200sc/klangsynthese/audio"
 	"github.com/200sc/klangsynthese/synth"
-	"regexp"
+	"go-synth-player/player"
 	"strconv"
 	"strings"
 	"time"
@@ -123,38 +122,39 @@ var (
 	}
 )
 
-func ParseMusic(music string) []audio.Audio {
+func ParseMusic(music []string) []player.Note {
 	fmt.Println("Start parsing")
-	notes := strings.Split(music, "-")
-	a := make([]audio.Audio, len(notes))
-	for i, s := range notes {
-		a[i] = parseNote(s)
+	a := make([]player.Note, len(music))
+	for i, n := range music {
+		a[i] = parseNote(n)
 	}
 
 	fmt.Println("Parsing success")
 	return a
 }
 
-func parseNote(note string) audio.Audio {
-	r, _ := regexp.Compile("^([A-G][0-8][b|s]?)\\[([0-9]+)\\]$")
-	matches := r.FindStringSubmatch(note)
-	if len(matches) < 3 {
+func parseNote(note string) player.Note {
+	parts := strings.Split(note, " ")
+	if len(parts) < 3 {
 		fmt.Printf("Invalid note %s\n", note)
 	}
 
-	fmt.Printf("Note %s duration %s ms\n", matches[1], matches[2])
-
-	pitch := synth.AtPitch(notes[matches[1]])
-	durationMs, err := strconv.ParseInt(matches[2], 10, 0)
+	start, err := strconv.ParseInt(parts[0], 10, 0)
+	duration, err := strconv.ParseInt(parts[1], 10, 0)
 	if err != nil {
 		panic(err)
 	}
 
-	duration := synth.Duration(time.Duration(durationMs) * time.Millisecond)
-	a, err := synth.Int16.Saw(pitch, duration)
+	noteStr := parts[2]
+	fmt.Printf("Start %d duration %d note %s  \n", start, duration, noteStr)
+
+	pitch := synth.AtPitch(notes[noteStr])
+
+	synthDuration := synth.Duration(time.Duration(duration) * time.Millisecond)
+	a, err := synth.Int16.Saw(pitch, synthDuration)
 	if err != nil {
 		panic(err)
 	}
 
-	return a
+	return player.NewNote(a, start)
 }

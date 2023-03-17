@@ -1,4 +1,4 @@
-module go-tabs-player
+module go-synth-player
 
 go 1.20
 

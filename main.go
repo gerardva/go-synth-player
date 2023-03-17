@@ -1,23 +1,32 @@
 package main
 
 import (
-	"fmt"
-	"go-tabs-player/parser"
+	"bufio"
+	"go-synth-player/parser"
+	"go-synth-player/player"
 	"os"
-	"time"
 )
 
 func main() {
-	b, err := os.ReadFile("notes.txt")
+	lines := readLines("notes.txt")
+	notes := parser.ParseMusic(lines)
+	player.PlaySequence(notes)
+}
+
+func readLines(filePath string) []string {
+	file, err := os.Open(filePath)
 	if err != nil {
 		panic(err)
 	}
+	defer file.Close()
 
-	str := string(b)
-	a := parser.ParseMusic(str)
-	for _, s := range a {
-		s.Play()
-		fmt.Println(s.PlayLength())
-		time.Sleep(s.PlayLength())
+	scanner := bufio.NewScanner(file)
+
+	var lines []string
+
+	for scanner.Scan() {
+		lines = append(lines, scanner.Text())
 	}
+
+	return lines
 }
