@@ -146,9 +146,14 @@ func parseNote(note string) player.Note {
 	}
 
 	noteStr := parts[2]
+	notesPitch, ok := notes[noteStr]
+	if !ok {
+		panic("Invalid note " + noteStr)
+	}
+
 	fmt.Printf("Start %d duration %d note %s  \n", start, duration, noteStr)
 
-	pitch := synth.AtPitch(notes[noteStr])
+	pitch := synth.AtPitch(notesPitch)
 
 	synthDuration := synth.Duration(time.Duration(duration) * time.Millisecond)
 	a, err := synth.Int16.Saw(pitch, synthDuration)
