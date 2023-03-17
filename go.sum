@@ -1,0 +1,16 @@
+github.com/200sc/klangsynthese v0.2.1 h1:29bwwxHqZmqz0nScJgdc11vvfuE2oyaPJb3DcHUCPaQ=
+github.com/200sc/klangsynthese v0.2.1/go.mod h1:1yEA6LmYbsEoAPJx+JN+UQk7k5yXebfWsuM1yGPK/3s=
+github.com/eaburns/bit v0.0.0-20131029213740-7bd5cd37375d h1:HB5J9+f1xpkYLgWQ/RqEcbp3SEufyOIMYLoyKNKiG7E=
+github.com/eaburns/bit v0.0.0-20131029213740-7bd5cd37375d/go.mod h1:CHkHWWZ4kbGY6jEy1+qlitDaCtRgNvCOQdakj/1Yl/Q=
+github.com/eaburns/flac v0.0.0-20171003200620-9a6fb92396d1 h1:wl/ggSfTHqAy46hyzw1IlrUYwjqmXYvbJyPdH3rT7YE=
+github.com/eaburns/flac v0.0.0-20171003200620-9a6fb92396d1/go.mod h1:frG94byMNy+1CgGrQ25dZ+17tf98EN+OYBQL4Zh612M=
+github.com/hajimehoshi/go-mp3 v0.3.4 h1:NUP7pBYH8OguP4diaTZ9wJbUbk3tC0KlfzsEpWmYj68=
+github.com/hajimehoshi/go-mp3 v0.3.4/go.mod h1:fRtZraRFcWb0pu7ok0LqyFhCUrPeMsGRSVop0eemFmo=
+github.com/hajimehoshi/oto/v2 v2.3.1/go.mod h1:seWLbgHH7AyUMYKfKYT9pg7PhUu9/SisyJvNTT+ASQo=
+github.com/oov/directsound-go v0.0.0-20141101201356-e53e59c700bf h1:od9gEl9UQ/QNHlgYlgsSaC5SZ+CGbvO2/PCIgserJc0=
+github.com/oov/directsound-go v0.0.0-20141101201356-e53e59c700bf/go.mod h1:RBXkZ8n2vvtdJP6PO+TbU/N/DVuCDwUN53CU+C1pJOs=
+github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
+github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
+github.com/yobert/alsa v0.0.0-20230126204319-85bb7ee02e5b h1:NPudjRQh/wQj0pXiT7uoQlvm1M4VsbMXe4kY+oalV40=
+github.com/yobert/alsa v0.0.0-20230126204319-85bb7ee02e5b/go.mod h1:CaowXBWOiSGWEpBBV8LoVnQTVPV4ycyviC9IBLj8dRw=
+golang.org/x/sys v0.0.0-20220712014510-0a85c31ab51e/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
